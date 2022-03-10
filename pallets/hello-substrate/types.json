@@ -1,0 +1,7 @@
+{
+	"Asset": {
+		"asset_id": "u32",
+		"price": "Option<BalanceOf<T>>",
+    "owner": "T::AccountId"
+  }
+}
