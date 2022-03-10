@@ -9,11 +9,10 @@ pub use pallet::*;
 
 #[frame_support::pallet]
 pub mod pallet {
-	use frame_support::traits::{ExistenceRequirement, Currency};
+	use frame_support::traits::{Currency, ExistenceRequirement};
 	use frame_support::{dispatch::DispatchResult, pallet_prelude::*};
 	use frame_system::ensure_signed;
 	use frame_system::pallet_prelude::*;
-	use sp_runtime::print;
 	use sp_std::prelude::*;
 
 	type BalanceOf<T> =
@@ -235,7 +234,7 @@ pub mod pallet {
 			// Append asset to AssetsOwned
 
 			AssetsOwned::<T>::append(&owner, asset.asset_id); // try_append was here when it was BoundedVec
-			//	.map_err(|_| Error::<T>::TooManyOwned)?; // this check is probably no longer needed
+												  //	.map_err(|_| Error::<T>::TooManyOwned)?; // this check is probably no longer needed
 
 			// Write new asset to storage
 			Assets::<T>::insert(asset.asset_id, asset);
@@ -273,9 +272,8 @@ pub mod pallet {
 
 			// Add asset to the list of owned assets.
 			let mut to_owned = AssetsOwned::<T>::get(&to);
-			to_owned
-				.push(asset_id); // try_push was here when it was BoundedVec
-				//.map_err(|()| Error::<T>::TooManyOwned)?; it's no longer bounded vec, so this check is probably unnecessary
+			to_owned.push(asset_id); // try_push was here when it was BoundedVec
+						 //.map_err(|()| Error::<T>::TooManyOwned)?; it's no longer bounded vec, so this check is probably unnecessary
 
 			// Mutating state here via a balance transfer, so nothing is allowed to fail after this.
 			if let Some(bid_price) = maybe_bid_price {
