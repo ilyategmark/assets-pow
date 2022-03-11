@@ -62,3 +62,9 @@ The Substrate Recipes are [GPL 3.0 Licensed](LICENSE) It is open source and
 The pallets and runtimes provided here are tested and ready to be used in other Substrate-based
 blockchains. The big caveat is that you must use the same upstream Substrate version throughout the
 project.
+
+Don't forget to use
+
+{ "Address": "AccountId", "LookupSource": "AccountId" }
+https://polkadot.js.org/apps/#/settings/developer
+Source: https://polkadot.js.org/docs/api/FAQ/#the-node-returns-a-could-not-convert-error-on-send 
