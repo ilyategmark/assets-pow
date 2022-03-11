@@ -2,8 +2,6 @@
 members = [
 	"pallets/assets-pow-pallet",
 	"runtimes/minimal-grandpa-runtime",
-	"runtimes/super-runtime",
-	"nodes/basic-pow",
 	"nodes/hybrid-consensus",
 	"consensus/sha3pow",
 	"traits/account-set",
