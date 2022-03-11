@@ -148,8 +148,8 @@ task_manager.spawn_essential_handle().spawn_blocking(
 Grandpa relies on getting its authority sets from the runtime via the
 [GrandpaAPI](https://substrate.dev/rustdocs/v3.0.0/sp_finality_grandpa/trait.GrandpaApi.html). So trying to build
 this node with a runtime that does not provide this API will fail to compile. For that reason, we
-have included the dedicated `minimal-grandpa-runtime`.
+have included the dedicated `hybrid-runtime`.
 
 The opposite is not true, however. A node that does _not_ require grandpa may use the
-`minimal-grandpa-runtime` successfully. The unused `GrandpaAPI` will remain as a harmless vestige in
+`hybrid-runtime` successfully. The unused `GrandpaAPI` will remain as a harmless vestige in
 the runtime.

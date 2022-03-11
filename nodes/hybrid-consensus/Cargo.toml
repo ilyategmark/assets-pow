@@ -46,7 +46,7 @@ sp-timestamp = '3.0'
 sp-transaction-pool = '3.0'
 
 # local packages
-runtime = { package = "minimal-grandpa-runtime", path = "../../runtimes/minimal-grandpa-runtime"}
+runtime = { package = "hybrid-runtime", path = "../../runtimes/hybrid-runtime"}
 sha3pow = { path = '../../consensus/sha3pow' }
 
 [build-dependencies]
