@@ -4,7 +4,6 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 // `construct_runtime!` does a lot of recursion and requires us to increase the limit to 256.
 #![recursion_limit = "256"]
-// #![allow(clippy::large_enum_variant)]
 #![allow(clippy::from_over_into)]
 // Make the WASM binary available.
 #[cfg(feature = "std")]
@@ -226,8 +225,6 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
-
-
 parameter_types! {
 	pub const TransactionByteFee: u128 = 1;
 }
@@ -239,6 +236,21 @@ impl pallet_transaction_payment::Config for Runtime {
 	type FeeMultiplierUpdate = ();
 }
 
+// ---------------------- Pallet Configurations ----------------------
+
+parameter_types! {
+	pub const MaxAssetsOwned: u32 = 999;
+	pub const MaxNumberOfAssets: u32 = 999;
+}
+
+impl assets_pow_pallet::Config for Runtime {
+	type Event = Event;
+	type Currency = Balances;
+	type MaxAssetsOwned = MaxAssetsOwned;
+	type MaxNumberOfAssets = MaxNumberOfAssets;
+}
+
+// ---------------------- End of Pallet Configurations ----------------------
 
 construct_runtime!(
 	pub enum Runtime where
@@ -253,6 +265,8 @@ construct_runtime!(
 		RandomnessCollectiveFlip: pallet_randomness_collective_flip::{Module, Call, Storage},
 		Sudo: pallet_sudo::{Module, Call, Config<T>, Storage, Event<T>},
 		TransactionPayment: pallet_transaction_payment::{Module, Storage},
+
+		AssetsPowPallet: assets_pow_pallet::{Module, Call, Storage, Event<T>},
 	}
 );
 

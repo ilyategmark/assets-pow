@@ -3108,6 +3108,7 @@ dependencies = [
 name = "minimal-grandpa-runtime"
 version = "3.0.0"
 dependencies = [
+ "assets-pow-pallet",
  "frame-executive",
  "frame-support",
  "frame-system",

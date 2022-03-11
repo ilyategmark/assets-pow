@@ -7,6 +7,7 @@ const fs = require('fs');
 // Does not include system pallets because Apps already supports them.
 // Redundant with construct_runtime!
 const pallets = [
+  "assets-pow-pallet",
   "weights",
 ]
 

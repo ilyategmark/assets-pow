@@ -1,5 +1,4 @@
 //! A Super Runtime.
-//!
 //! This runtime demonstrates most of the recipe pallets in a single super runtime.
 
 #![cfg_attr(not(feature = "std"), no_std)]
