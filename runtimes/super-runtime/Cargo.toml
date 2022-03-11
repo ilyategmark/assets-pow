@@ -33,7 +33,7 @@ pallet-timestamp = { version = '3.0', default-features = false }
 pallet-transaction-payment = { version = '3.0', default-features = false }
 
 # local packages
- hello-substrate = { path = "../../pallets/hello-substrate", default-features = false }
+ assets-pow-pallet = { path = "../../pallets/assets-pow-pallet", default-features = false }
 
 [build-dependencies]
 substrate-wasm-builder = "4.0.0"
@@ -45,7 +45,7 @@ std = [
 	"frame-executive/std",
 	"frame-support/std",
 	"frame-system/std",
-	"hello-substrate/std",
+	"assets-pow-pallet/std",
 	"parity-scale-codec/std",
 	"pallet-randomness-collective-flip/std",
 	"serde",

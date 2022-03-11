@@ -1,12 +1,4 @@
-# Hello Substrate
-
-`pallets/hello-substrate`
-<a target="_blank" href="https://playground.substrate.dev/?deploy=recipes&files=%2Fhome%2Fsubstrate%2Fworkspace%2Fpallets%2Fhello-substrate%2Fsrc%2Flib.rs">
-	<img src="https://img.shields.io/badge/Playground-Try%20it!-brightgreen?logo=Parity%20Substrate" alt ="Try on playground"/>
-</a>
-<a target="_blank" href="https://github.com/substrate-developer-hub/recipes/tree/master/pallets/hello-substrate/src/lib.rs">
-	<img src="https://img.shields.io/badge/Github-View%20Code-brightgreen?logo=github" alt ="View on GitHub"/>
-</a>
+# Assets PoW Pallet
 
 This pallet has one
 dispatchable call that prints a message to the node's output. Printing to the node log is not common for runtimes, but can be quite useful when debugging and as a "hello world" example. Because this is the first pallet in the recipes, we'll also take a look at the general structure of a pallet.
@@ -27,7 +19,7 @@ Next, you'll find imports that come from various parts of the Substrate framewor
 import from a few common crates including
 [`frame-support`](https://substrate.dev/rustdocs/v3.0.0/frame_support/index.html), and
 [`frame-system`](https://substrate.dev/rustdocs/v3.0.0/frame_system/index.html). Complex pallets will have many
-imports. The `hello-substrate` pallet uses these imports.
+imports. The `assets-pow-pallet` pallet uses these imports.
 
 ```rust, ignore
 use frame_support::{debug, decl_module, dispatch::DispatchResult};
@@ -74,14 +66,14 @@ decl_module! {
 }
 ```
 
-As you can see, our `hello-substrate` pallet has a dispatchable call that takes a single argument,
+As you can see, our `assets-pow-pallet` pallet has a dispatchable call that takes a single argument,
 called `origin`. The call returns a
 [`DispatchResult`](https://substrate.dev/rustdocs/v3.0.0/frame_support/dispatch/type.DispatchResult.html) which
 can be either `Ok(())` indicating that the call succeeded, or an `Err` which is demonstrated in most other recipes pallets.
 
 ### Weight Annotations
 
-Right before the `hello-substrate` function, we see the line `#[weight = 10_000]`. This line
+Right before the `assets-pow-pallet` function, we see the line `#[weight = 10_000]`. This line
 attaches a default weight to the call. Ultimately weights affect the fees a user will have to pay to
 call the function. Weights are a very interesting aspect of developing with Substrate, but they too
 shall be covered later in the section on [Weights](./weights.md). For now, and for many of

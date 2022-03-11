@@ -1,6 +1,6 @@
 [workspace]
 members = [
-	"pallets/hello-substrate",
+	"pallets/assets-pow-pallet",
 	"runtimes/minimal-grandpa-runtime",
 	"runtimes/super-runtime",
 	"nodes/basic-pow",

@@ -221,7 +221,7 @@ parameter_types! {
 	pub const MaxNumberOfAssets: u32 = 999;
 }
 
-impl hello_substrate::Config for Runtime {
+impl assets_pow_pallet::Config for Runtime {
 	type Event = Event;
 	type Currency = Balances;
 	type MaxAssetsOwned = MaxAssetsOwned;
@@ -243,7 +243,7 @@ construct_runtime!(
 		Sudo: pallet_sudo::{Module, Call, Config<T>, Storage, Event<T>},
 		TransactionPayment: pallet_transaction_payment::{Module, Storage},
 
-		HelloSubstrate: hello_substrate::{Module, Call, Storage, Event<T>},
+		AssetsPowPallet: assets_pow_pallet::{Module, Call, Storage, Event<T>},
 	}
 );
 
